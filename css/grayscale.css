@@ -346,15 +346,15 @@ body {
 
 }
 
-.axis {
-    font: 10px sans-serif;
-  }
+#namebar rect {
+  fill: steelblue;
+  opacity: 0.8;
+}
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+#namebar text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
 }
 
 

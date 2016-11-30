@@ -1,10 +1,10 @@
-var width = 960,
-    height = 500;
+var width = 700,
+    height = 400;
 
 var y = d3.scale.linear()
     .range([height, 0]);
 
-var chart = d3.select(".chart")
+var chart = d3.select("#namebar")
     .attr("width", width)
     .attr("height", height);
 
