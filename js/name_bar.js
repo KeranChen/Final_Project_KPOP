@@ -8,10 +8,17 @@ var chart = d3.select("#namebar")
     .attr("width", width)
     .attr("height", height);
 
-var data = [ 30,75,36,80,90,82]
+var data = [ {"C": "food", "V": 30, "T": ["apple"]},
+             {"C": "'3' Letters ", "V": 75, "T": "H.O.T"},
+             {"C": "Colors", "V": 30, "T": "BlackPink"},
+             {"C": "Gender", "V":80, "T": "Girl's Generation"},
+             {"C": "Numbers", "V": 90, "T": "2pm"},
+             {"C": "Single letter", "V": 83, "T": "J-Walk"}];
 
 
-y.domain([0, d3.max(data, function(d) { return d; })]);
+
+
+y.domain([0, d3.max(data, function(d) { return d.V; })]);
 
 var barWidth = width / data.length;
 
@@ -21,15 +28,15 @@ var bar = chart.selectAll("g")
     .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
 
 bar.append("rect")
-    .attr("y", function(d) { return y(d); })
-    .attr("height", function(d) { return height - y(d); })
-    .attr("width", barWidth - 1);
+    .attr("y", function(d) { return y(d.V); })
+    .attr("height", function(d) { return height - y(d.V); })
+    .attr("width", barWidth - 5);
 
 bar.append("text")
     .attr("x", barWidth / 2)
-    .attr("y", function(d) { return y(d) + 3; })
-    .attr("dy", ".75em")
-    .text(function(d) { return d; });
+    .attr("y", function(d) { return y(d.V) + 3; })
+    .attr("dy", "2em")
+    .text(function(d) { return d.T; });
 
 
 function type(d) {
