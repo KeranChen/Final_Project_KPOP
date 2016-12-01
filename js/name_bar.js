@@ -8,12 +8,12 @@ var chart = d3.select("#namebar")
     .attr("width", width)
     .attr("height", height);
 
-var data = [ {"C": "food", "V": 30, "T": ["apple"]},
-             {"C": "'3' Letters ", "V": 75, "T": "H.O.T"},
-             {"C": "Colors", "V": 30, "T": "BlackPink"},
-             {"C": "Gender", "V":80, "T": "Girl's Generation"},
-             {"C": "Numbers", "V": 90, "T": "2pm"},
-             {"C": "Single letter", "V": 83, "T": "J-Walk"}];
+var data = [ {"C": "food", "V": 30, "T": ["apple", "Papaya"]},
+             {"C": "'3' Letters ", "V": 75, "T": ["H.O.T","EXO"]},
+             {"C": "Colors", "V": 30, "T": ["BlackPink"]},
+             {"C": "Gender", "V":80, "T": ["Girl's Generation"]},
+             {"C": "Numbers", "V": 90, "T": ["2pm"]},
+             {"C": "Single letter", "V": 83, "T": ["J-Walk"]}];
 
 
 
@@ -32,14 +32,31 @@ bar.append("rect")
     .attr("height", function(d) { return height - y(d.V); })
     .attr("width", barWidth - 5);
 
-bar.append("text")
-    .attr("x", barWidth / 2)
-    .attr("y", function(d) { return y(d.V) + 3; })
-    .attr("dy", "2em")
-    .text(function(d) { return d.T; });
+
+var names = bar.append("text")
+    
+    .attr("text-anchor", "start")
+    .attr("y", function(d){ return y(d.V);})
+    .style("fill-opacity", 1);
+
+names.selectAll('tspan')
+      .data(function(d){        
+        return d.T ;  
+      })
+      .enter()
+      .append('tspan')
+      .attr("x", 100)
+      .attr('dy', function(d,i){
+      return (1) + "em";
+    })
+      .text(function(d){
+          console.log(d);
+        return d;   
+      });
 
 
-function type(d) {
-  d.value = +d.value; // coerce to number
-  return d;
-}
+
+
+
+
+
