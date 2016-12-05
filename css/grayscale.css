@@ -304,9 +304,19 @@ body {
 }
 
 
-
+#fixed-side-bar{
+  
+  position:fixed; top:2%; right:0;
+  background-color: black;
+  opacity: 0.6;
+  width: 290px; 
+  height: 700px; 
+  margin-right: -300px;
+  
+}
 
 #about{
+  display: table; table-layout: fixed;
   background: url(../img/GirlGroup1.jpg) no-repeat bottom center scroll;
   background-size: cover;
   width: 100%;
@@ -327,6 +337,7 @@ body {
     }
   
 }
+
 
 
 

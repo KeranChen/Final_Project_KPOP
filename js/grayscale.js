@@ -183,3 +183,14 @@ function init() {
         icon: image
     });
 }
+
+
+
+
+
+//Hover
+$('.radialchart').mouseover(function(){
+  $('#fixed-side-bar').stop().animate({marginRight: '0px'}, 300);
+}).mouseout(function(){
+  $('#fixed-side-bar').stop().animate({marginRight: '-300px'}, 300);
+});
